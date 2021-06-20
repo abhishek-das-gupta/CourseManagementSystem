@@ -1,0 +1,41 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:2.2.0.REALEASE")
+    }
+}
+
+plugins {
+    id 'java'
+    id 'org.jetbrains.kotlin.jvm' version '1.3.72'
+    id 'org.springframework.boot' version '2.2.0.RELEASE'
+}
+
+apply plugin: 'io.spring.dependency-management'
+
+compileKotlin {
+    kotlinOptions.jvmTarget = "1.8"
+}
+
+compileTestKotlin {
+    kotlinOptions.jvmTarget = "1.8"
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib"
+    implementation "org.springframework.boot:spring-boot-starter-web"
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    implementation 'org.jetbrains.kotlin:kotlin-reflect:1.1.51'
+    implementation 'com.fasterxml.jackson.module:jackson-module-kotlin:2.8.+'
+    runtime group: 'org.apache.derby', name: 'derby', version: '10.14.2.0'
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+}
